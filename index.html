@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Adventures of Wallace MacDuff | Coming Soon</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
+    
+    <style>
+        /* The Default Layout */
+        .decoy-col {
+            width: 100%; 
+            max-width: 700px; 
+            flex-shrink: 1; 
+            height: 90vh; 
+        }
+        .decoy-title {
+            margin-top: 0px;
+        }
+
+        /* ===== iPhone SE (375x667) ===== */
+        @media screen and (max-width: 375px) and (max-height: 667px) {
+            .main-layout {
+                /* Anchors the stack to the top so it never gets pushed off the screen */
+                justify-content: flex-start !important; 
+                padding-top: 10px !important; 
+            }
+            .decoy-col {
+                height: auto !important; 
+            }
+            .marquee-sign {
+                max-width: 320px !important; /* Shrinks the wooden sign slightly */
+                margin-bottom: 20px !important; /* Pulls the parchment closer to the sign */
+            }
+            .decoy-title {
+                margin-top: 0px !important; 
+                font-size: 1.5rem !important; /* Shrinks the h1 text */
+            }
+            .content-area p {
+                font-size: 1rem !important; /* Shrinks the paragraph text */
+                margin-bottom: 15px !important;
+                margin-top: 0px !important;
+            }
+        }
+
+        /* ===== iPhone X (375x812) ===== */
+        @media screen and (max-width: 375px) and (min-height: 810px) and (max-height: 820px) {
+            .decoy-col {
+                height: 82vh !important; /* THE DIAL: Adjusts for the notch and the bottom swipe bar */
+            }
+        }
+
+        /* ===== iPhone 12 Pro (390x844) ===== */
+        @media screen and (min-width: 380px) and (max-width: 395px) and (min-height: 840px) {
+            .decoy-col {
+                height: 82vh !important; /* THE DIAL: Adjusts for the notch and the bottom swipe bar */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="splash-screen" id="master-splash">
+        <div class="intro-wrapper">
+            <img src="images/intro.png" alt="Dimmed Cows" class="kilt-dimmed">
+            <img src="images/intro.png" alt="Bright Cows" class="kilt-bright">
+        </div>
+    </div>
+
+<div class="farm-stage">
+    
+    <div class="main-layout" style="justify-content: center; align-items: center; padding: 20px; box-sizing: border-box;">
+
+        <div class="layout-col-center decoy-col">
+            
+            <div class="marquee-wrapper">
+                <img src="images/sign.png" alt="Wallace MacDuff" class="marquee-sign protected-art">
+            </div>
+            
+            <div class="parchment-runner">
+                <div class="content-area" id="parchmentContent" style="display: flex; flex-direction: column; justify-content: center; text-align: center;">
+                    
+                    <h1 class="decoy-title">The Farm is<br>Opening Soon!</h1>
+                    
+                    <div class="storybook-divider"></div>
+                    
+                    <img src="images/cocoa-mug.png" alt="A perfect mug of hot cocoa" class="transparent-png inline-story-img protected-art small-story-img swing-icon" style="max-width: 90px !important; margin: 10px auto;">
+                    <p>Wally is currently adjusting the thermostat to exactly seventy-two degrees and perfecting his marshmallow-to-cocoa ratio.</p>
+                    
+                    <p style="margin-top: 20px;"><strong>Check back very soon for the grand&nbsp;opening!</strong></p>
+                    
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+    
+    <div class="farm-footer">
+        <a href="#">Wallace MacDuff Storybooks &copy; 2026</a>
+    </div>
+</div>
+
+    <script>
+        const splash = document.getElementById('master-splash');
+        
+        // Checks if they have seen it this session
+        if (sessionStorage.getItem('wallySplashSeen')) {
+            splash.style.display = 'none';
+        } else {
+            // If it is their first time, write the sticky note!
+            sessionStorage.setItem('wallySplashSeen', 'true');
+            
+            // Wait for the animation to finish before hiding it
+            splash.addEventListener('animationend', (e) => {
+                if (e.animationName === 'fadeOutSplash') {
+                    splash.style.display = 'none'; 
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
