@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Adventures of Wallace MacDuff | Guestbook Map</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+
+<div class="farm-stage">
+    <div class="main-layout">
+
+        <div class="layout-col-left">
+            <div class="signpost-menu">
+                <img src="images/post.png" alt="Signpost" class="post-wood protected-art">
+                <div class="hanging-signs">
+                    <a href="index.html"><img src="images/nav-home.png" alt="Home" class="menu-sign protected-art"></a>
+                    <a href="story.html"><img src="images/nav-story.png" alt="Our Story" class="menu-sign protected-art"></a>
+                    <a href="books.html"><img src="images/nav-books.png" alt="Books" class="menu-sign protected-art"></a>
+                    <a href="fun.html"><img src="images/nav-fun.png" alt="Fun" class="menu-sign protected-art active"></a>
+                    <a href="contact.html"><img src="images/nav-contact.png" alt="Contact" class="menu-sign protected-art"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="layout-col-center">
+            <a href="index.html" class="marquee-wrapper">
+                <img src="images/sign.png" alt="Wallace MacDuff" class="marquee-sign protected-art">
+            </a>
+            
+            <div class="parchment-runner">
+                <div class="content-area" id="parchmentContent">
+                    
+                    <h1>The Guestbook Map</h1>
+                    <div id="guestbook-map"></div>
+                    <div class="wally-callout">
+                        <p>Wally has made friends all over the world! Explore the antique map to see just how far Wally has traveled. Want to add your family's name to the map?<br><a href="contact.html" style="color: #603416; font-weight: bold;">Send us a message!</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="layout-col-right"></div>
+        <div class="farm-footer">
+            <a href="legal.html">Wallace MacDuff Storybooks &copy; 2026</a>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // 1. Fire up the map! 
+    var map = L.map('guestbook-map', {
+        scrollWheelZoom: false,
+        worldCopyJump: true 
+    }); 
+
+    // THE DYNAMIC VIEWPORT CHECK
+// THE DYNAMIC VIEWPORT CHECK (1:1 with your CSS profiles)
+    if (window.matchMedia("(max-width: 375px) and (max-height: 667px)").matches) {
+
+        // ===== iPhone SE =====
+        map.setView([40.0, -101.0], 3); 
+    } else if (window.matchMedia("(max-width: 375px) and (min-height: 810px) and (max-height: 820px)").matches) {
+
+        // ===== iPhone X =====
+        map.setView([15.0, -85.0], 2); 
+    } else if (window.matchMedia("(min-width: 380px) and (max-width: 395px) and (min-height: 840px)").matches) {
+
+        // ===== iPhone 12 Pro =====
+        map.setView([32.0, -99.0], 3); 
+    } else if (window.matchMedia("(min-width: 400px) and (max-width: 420px) and (min-height: 890px)").matches) {
+
+        // ===== Galaxy S20 Ultra & A51/71 =====
+        map.setView([30.0, -99.0], 3); 
+    } else if (window.matchMedia("(min-width: 768px) and (max-width: 768px) and (min-height: 1024px)").matches) {
+
+        // ===== iPad Mini =====
+        map.setView([25.0, -99.5], 3); 
+    } else if (window.matchMedia("(min-width: 810px) and (max-width: 810px) and (min-height: 1080px)").matches) {
+
+        // ===== iPad =====
+        map.setView([25.0, -99.5], 3); 
+    } else if (window.matchMedia("(min-width: 820px) and (max-width: 820px) and (min-height: 1180px)").matches) {
+
+        // ===== iPad Air =====
+        map.setView([20.0, -99.5], 3); 
+    } else if (window.matchMedia("(min-width: 830px) and (max-width: 1024px) and (min-height: 1190px)").matches) {
+
+        // ===== iPad Pro =====
+        map.setView([10, -92.5], 3); 
+    } else {
+
+        // ===== DEFAULT / DESKTOP =====
+        map.setView([10.0, -74.0], 2); 
+    }
+
+    // 2. Load the base map (Esri World Street Map - Highly Detailed)
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+        maxZoom: 14,
+        attribution: '&copy; Esri'
+        // (Notice we removed the 'noWrap: true' so the earth can repeat again!)
+    }).addTo(map);
+
+    // 3. Create the Custom Pins!
+    // This is the default pin for all your regular fans.
+    var wallyIcon = L.icon({
+        iconUrl: 'images/wally-pin.png', 
+        iconSize: [36, 36], 
+        iconAnchor: [18, 18], 
+        popupAnchor: [0, -20] // Adjusted slightly so the popup hovers just above the 36px pin
+    });
+
+    // THE VIP PINS: Great Gran's custom icon, etc
+    var granIcon = L.icon({
+        iconUrl: 'images/gran-pin.png', 
+        iconSize: [36, 36], // Keeping her pin the same size as Wally's
+        iconAnchor: [18, 18], 
+        popupAnchor: [0, -20] 
+    });
+
+    var mommaIcon = L.icon({
+        iconUrl: 'images/momma-pin.png', 
+        iconSize: [36, 36], 
+        iconAnchor: [18, 18], 
+        popupAnchor: [0, -20] 
+    });
+
+    var louIcon = L.icon({
+        iconUrl: 'images/lou-pin.png', 
+        iconSize: [36, 36], 
+        iconAnchor: [18, 18], 
+        popupAnchor: [0, -20] 
+    });
+
+    var mauriceIcon = L.icon({
+        iconUrl: 'images/maurice-pin.png', 
+        iconSize: [36, 36], 
+        iconAnchor: [18, 18], 
+        popupAnchor: [0, -20] 
+    });    
+
+    // 4. THE PIN MANAGER (Now with Hover Tooltips & Click Cards!)
+    function addPin(lat, lng, name, location, pinStyle = wallyIcon, topPriority = 0) {
+        var popupText = "<span class='popup-name'>" + name + "</span>" + location;
+        
+        L.marker([lat, lng], {icon: pinStyle, zIndexOffset: topPriority})
+            .addTo(map)
+            .bindTooltip(name, {direction: "top", offset: [0, -20], className: "wally-tooltip"}) // THE HOVER
+            .bindPopup(popupText); // THE CLICK
+    }
+
+    // =========================================================================
+    // =========================================================================
+    //                       WALLY'S GUESTBOOK LEDGER
+    // =========================================================================
+    // =========================================================================
+    // INSTRUCTIONS FOR LOU:
+    // 1. Copy an existing line.
+    // 2. Paste it at the bottom of the list.
+    // 3. Change the Latitude, Longitude, Name, and City.
+    // 
+    // REGULAR FANS (Uses Wally Pin automatically):
+    // addPin(Latitude, Longitude, "Fan Name", "City, State");
+    // 
+    // VIP FANS (Like Great Gran):
+    // Add the VIP icon name (like 'granIcon') at the end of the entry
+    // Duplicate the var from the section above, THE VIP PINS, and point to the correct image (64px by 64px at 72 DPI)
+    // To bring one icon to the top of a pile, add a z-index after its var name below, leave off unless you need it:
+
+    // =========================================================================
+    // addPin(36.08, -94.17, "Shane", "Fayetteville, Arkansas<br><br><em>SPECIAL NOTE GOES HERE</em>", louIcon, 1000);
+    // =========================================================================
+    
+    addPin(35.94940449272475, -94.42338614528613, "Leyton & Betsy", "Lincoln, Arkansas<br><br><em>Made me feel like a kid again!</em>");
+    addPin(34.7428, -92.2763, "Wayner Dee", "Little Rock, Arkansas");
+    addPin(35.9315, -94.1800, "Kym & Kerry", "West Fork, Arkansas");
+    addPin(35.99264495429431, -94.30923400130978, "Alex & Peyton", "Prairie Grove, Arkansas");
+    addPin(36.068842320616774, -94.17379165468772, "Hudson", "Fayetteville, Arkansas");
+    addPin(36.06805424568147, -94.17418461411503, "Samuel", "Fayetteville, Arkansas");
+    
+    // VIP ENTRY: ==============================================================
+
+    addPin(36.068701644764715, -94.17143376808106, "Shane", "Fayetteville, Arkansas<br><br><em>Thank you for reading!</em>", louIcon);
+    addPin(34.73113169405168, -112.44467288313557, "Brightside Judy", "Chino Valley, Arizona<br><br><em>Wish this was available when my kids were little!</em>", mommaIcon);
+    addPin(56.8763, -5.4318, "Great Gran", "Glenfinnan, Scotland<br><br><em>Wallace, be sure to write your Great Gran every Sunday!!</em>", granIcon, 1000);    
+    addPin(53.47890402451172, -2.251354966082632, "Maurice", "Manchester, England<br><br><em>Just a theater mouse living in an opera house.</em>", mauriceIcon);    
+
+    // FILLERS =================================================================
+    // Pin dropped on the Alberta Legislature Grounds
+    addPin(53.5334, -113.5003, "Gordie & Pam", "Edmonton, Alberta<br><br><em>Send Wally up here next!</em>");
+    // Pin dropped on the Auckland Sky Tower
+    addPin(-36.8485, 174.7633, "Chloe & Liam", "Auckland, New Zealand<br><br><em>Can Wally play rugby next?</em>");
+    // Pin dropped on the Obelisco de Buenos Aires
+    addPin(-34.6037, -58.3816, "Mateo", "Buenos Aires, Argentina<br><br><em>Awesome book!</em>");
+    // Pin dropped right on top of Pilot Butte State Scenic Viewpoint
+    addPin(44.0610, -121.2825, "Lew Hessian", "Bend, Oregon<br><br><em>Our kids love the little cows!</em>");
+    // Pin dropped right inside the Diamond Head crater
+    addPin(21.2620, -157.8030, "Kimo & Leilani", "Honolulu, Hawaii<br><br><em>Reading from sunny Hawaii!</em>");    
+    // Pin dropped right in the center of Marienplatz
+    addPin(48.1371, 11.5754, "Hans Wiesel", "Munich, Germany<br><br><em>Our boys love Wally!</em>");
+    // Pin dropped in the heart of Acapulco for the local taqueria crew
+    addPin(16.8531, -99.8237, "Reuben & Clara", "Acapulco, Mexico<br><br><em>See You Tomorrow!!!</em>");
+    // Pin dropped near the Plaza Mayor in Lima
+    addPin(-12.0464, -77.0428, "The Vargas Family", "Lima, Peru<br><br><em>Our family loves Gran!!</em>");
+    // Pin dropped at the India Gate monument
+     addPin(28.6129, 77.2295, "The Sharma Family", "New Delhi, India<br><br><em>Sending love to Wally from India!</em>");
+    // Pin dropped at the Grand Palace
+    addPin(26.2170, 127.7195, "Kenji & Emi", "Okinawa, Japan<br><br><em>Such a beautiful and funny story.</em>");
+    // Pin dropped on the Sydney Opera House (Keep an eye out for a pelican named Nigel!)
+    addPin(-33.8568, 151.2153, "Lachlan & Mia", "Sydney, Australia<br><br><em>Mia said you need more girl cows in your next book lol</em>");
+    // Ted's Pin with a custom message!
+    addPin(42.1950, -71.1989, "John & Ted", "Norwood, Massachusetts<br><br><em>A great book to read when you hear the sound of thunder!</em>");
+    
+
+    // =========================================================================
+    // =========================================================================
+    // =========================================================================
+
+
+    // Separate parchment scroll and map scroll
+
+    const parchment = document.querySelector('.content-area');
+    let isDown = false;
+    let startY;
+    let scrollTop;
+
+    // When the mouse clicks down, lock the starting position
+    parchment.addEventListener('mousedown', (e) => {
+        // SAFETY CHECK: Don't drag the parchment if they are trying to pan the map!
+        if (e.target.closest('#guestbook-map')) return; 
+        
+        isDown = true;
+        startY = e.pageY - parchment.offsetTop;
+        scrollTop = parchment.scrollTop;
+    });
+
+    // If the mouse leaves the parchment, let go
+    parchment.addEventListener('mouseleave', () => {
+        isDown = false;
+    });
+
+    // When the mouse click is released, let go
+    parchment.addEventListener('mouseup', () => {
+        isDown = false;
+    });
+
+    // While holding the click and moving the mouse, scroll the text!
+    parchment.addEventListener('mousemove', (e) => {
+        if (!isDown) return; 
+        e.preventDefault(); 
+        const y = e.pageY - parchment.offsetTop;
+        const walk = (y - startY) * 1.5; 
+        parchment.scrollTop = scrollTop - walk;
+    });
+    
+</script>
+
+</body>
+</html>

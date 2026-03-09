@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splash Test</title>
+    <style>
+        /* 1. THE SPLASH CONTAINER */
+        /* This covers the whole screen with your cream color */
+        .splash-screen {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background-color: #f4e8ce; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            
+            /* Step 3: Fades the entire screen away after 3.5 seconds */
+            animation: fadeOutSplash 1s ease 3.5s forwards;
+        }
+
+        /* 2. THE IMAGE WRAPPER */
+        /* Keeps everything perfectly sized and stacked */
+        .intro-wrapper {
+            position: relative;
+            width: 90%;
+            max-width: 800px; /* Adjust this if you want the cows bigger/smaller */
+        }
+
+        /* 3. THE DIMMED BASE LAYER */
+        .kilt-dimmed {
+            width: 100%;
+            height: auto;
+            display: block;
+            /* Washes the image out and dims it */
+            filter: brightness(0.4) grayscale(60%); 
+        }
+
+        /* 4. THE BRIGHT REVEAL LAYER */
+        .kilt-bright {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: auto;
+            
+            /* The Magic: This hides the bright image at first using a clipping mask */
+            clip-path: inset(0 100% 0 0); 
+            
+            /* Step 2: Runs the spotlight sweep over 2 seconds, starting after a half-second pause */
+            animation: spotlightSweep 2s ease-in-out 0.5s forwards;
+        }
+
+        /* --- THE ANIMATION KEYFRAMES --- */
+        
+        /* The Sweep: Uncovers the bright image from left to right */
+        @keyframes spotlightSweep {
+            0% { clip-path: inset(0 100% 0 0); } /* 100% hidden on the right */
+            100% { clip-path: inset(0 0 0 0); }  /* 0% hidden (fully revealed) */
+        }
+
+        /* The Curtain: Fades the whole splash screen away */
+        @keyframes fadeOutSplash {
+            0% { opacity: 1; visibility: visible; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="splash-screen">
+        <div class="intro-wrapper">
+            <img src="images/intro.png" alt="Dimmed Cows" class="kilt-dimmed">
+            
+            <img src="images/intro.png" alt="Bright Cows" class="kilt-bright">
+        </div>
+    </div>
+
+</body>
+</html>

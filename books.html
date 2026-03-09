@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Adventures of Wallace MacDuff | Books</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="focus-overlay"></div>
+
+
+<div class="farm-stage">
+    
+    <div class="main-layout">
+
+        <div class="layout-col-left">
+            <div class="signpost-menu">
+                <img src="images/post.png" alt="Signpost" class="post-wood protected-art">
+                <div class="hanging-signs">
+                    <a href="index.html"><img src="images/nav-home.png" alt="Home" class="menu-sign protected-art"></a>
+                    <a href="story.html"><img src="images/nav-story.png" alt="Our Story" class="menu-sign protected-art"></a>
+                    <a href="books.html"><img src="images/nav-books.png" alt="Books" class="menu-sign protected-art"></a>
+                    <a href="fun.html"><img src="images/nav-fun.png" alt="Fun" class="menu-sign protected-art"></a>
+                    <a href="contact.html"><img src="images/nav-contact.png" alt="Contact" class="menu-sign protected-art"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="layout-col-center">
+            
+            <a href="index.html" class="marquee-wrapper">
+                <img src="images/sign.png" alt="Wallace MacDuff" class="marquee-sign protected-art">
+            </a>
+            
+            <div class="parchment-runner">
+                <div class="content-area" id="parchmentContent">
+                    
+                    <div class="book-hero">
+                        <a href="#"> <img src="images/cover.jpg" alt="A Highland Homecoming Cover" class="book-cover protected-art">
+                        </a>
+
+                        <div class="book-actions">
+                            <a href="#" class="action-btn btn-primary">Buy the Book</a>
+                        </div>
+                    </div>
+
+                    <div class="storybook-divider"></div>
+
+                    <p class="trailer-text">
+                        <strong>Meet Wallace MacDuff.<br>He is not your average Highland&nbsp;cow.</strong><br>
+                        <img src="images/bathtub.jpg" alt="A Highland Homecoming Cover" class="trailer-img protected-art">
+                        For generations, the MacDuffs have been legends of the Scottish Highlands. They roamed the wind-swept moors, battled freezing rains, and ate thistles for breakfast. They were wild, untamed beasts of the&nbsp;north.<br><br>Wally prefers a warm cup of cocoa, a good novel, and a thermostat set firmly to seventy-two degrees. He considers looking this handsome to be a <span style="white-space: nowrap;">full-time job.</span>
+                    </p>
+
+                    <img src="images/letter.png" alt="A heavy red letter arrives" class="transparent-png inline-story-img protected-art small-story-img">
+
+                    <p class="trailer-text">
+                        But when a heavy red letter smelling faintly of mothballs arrives from the Council of Aunts, his peaceful routine is shattered. Great&nbsp;Gran is turning 100 years old, and the clan is gathering for a massive Surprise&nbsp;Jubilee!
+                    </p>
+
+                    <img src="images/trousers.jpg" alt="Wally struggles with his trousers" class="trailer-img protected-art">
+
+                    <p class="trailer-text">
+                        Unable to resist the call of his ancestors, Wally trades his hand-stitched Italian silk and warm cocoa for the muddy madness of Scotland. He is about to dive headfirst into a chaotic free-for-all of <span style="white-space: nowrap;">horns, hair, and hay.</span> 
+                    </p>
+
+                    <img src="images/cousins.jpg" alt="Wally meets his massive Highland family" class="trailer-img protected-art">
+
+                    <p class="trailer-text">
+                        Can a pampered city cow survive the legendary Caber Toss? Or will Wally discover that being a true MacDuff just requires a little extra... wiggle&nbsp;room?
+                    </p>
+
+                    <div class="mini-promo">
+                        <a href="#"> 
+                            <img src="images/cover.jpg" alt="A Highland Homecoming Cover" class="mini-cover protected-art">
+                        </a>
+                        
+                        <div class="mini-promo-info">
+                            <h4 class="mini-promo-title"><em><span style="white-space: nowrap;">The Adventures of</span><br><span style="white-space: nowrap;">Wallace MacDuff:</span><br><span style="white-space: nowrap;">A Highland Homecoming</span></em></h4>
+                            <a href="#" class="action-btn btn-primary">Buy the Book</a>
+                        </div>
+                    </div>
+
+                    <div class="storybook-divider"></div>
+
+                    <h2 class="teaser-title" style="text-align: center; margin-top: 30px;">Coming Attractions...</h2>
+                    
+                    <div class="theatrical-container" id="teaserScene">
+                        <div class="color-fade-wrapper">
+                            <div class="whack-wrapper">
+                                <img src="images/teaser-dark.jpg" alt="Maurice waits in the dark" class="teaser-base-img protected-art">
+                                <img src="images/teaser-light.jpg" alt="Wally Joins The Circus Teaser" class="teaser-shadow-img protected-art">
+                            </div>
+                        </div>
+                        <p class="instruction-text" id="teaserInstruction">Tap the picture to help Maurice turn on the&nbsp;flashlight...</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="layout-col-right"></div>
+        
+        <div class="farm-footer">
+            <a href="legal.html">Wallace MacDuff Storybooks &copy; 2026</a>
+        </div>
+        
+    </div>
+</div>
+
+<script>
+    // The standard parchment scrolling script
+    const parchment = document.querySelector('.content-area');
+    let isDown = false;
+    let startY;
+    let scrollTop;
+
+    parchment.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startY = e.pageY - parchment.offsetTop;
+        scrollTop = parchment.scrollTop;
+    });
+
+    parchment.addEventListener('mouseleave', () => {
+        isDown = false;
+    });
+
+    parchment.addEventListener('mouseup', () => {
+        isDown = false;
+    });
+
+    parchment.addEventListener('mousemove', (e) => {
+        if (!isDown) return; 
+        e.preventDefault(); 
+        const y = e.pageY - parchment.offsetTop;
+        const walk = (y - startY) * 1.5; 
+        parchment.scrollTop = scrollTop - walk;
+    });
+
+// THE THEATRICAL DIRECTOR
+    const teaserScene = document.getElementById('teaserScene');
+    const instructionText = document.getElementById('teaserInstruction');
+    const parchmentArea = document.querySelector('.content-area'); // Grabs your parchment!
+    
+    if(teaserScene) {
+        teaserScene.addEventListener('click', () => {
+            // Act 1: Ignore clicks if the movie is already playing or finished
+            if (teaserScene.classList.contains('is-playing') || teaserScene.classList.contains('is-finished')) return;
+
+            // Act 2: House Lights Down, Start the Bloom & Whack
+            document.body.classList.add('focus-mode');
+            teaserScene.classList.add('is-playing');
+            
+            // Fade out the "Tap the picture..." instructions
+            instructionText.style.opacity = '0'; 
+
+            // Act 4 is the 8-second waiting period!
+
+            // Act 5: House Lights Up, Reveal Title & Auto-Scroll
+            setTimeout(() => {
+                document.body.classList.remove('focus-mode');
+                teaserScene.classList.remove('is-playing');
+                teaserScene.classList.add('is-finished');
+                
+                // THE SWAP: Inject the new text into the exact same spot!
+                instructionText.innerHTML = '<h3 style="margin-top: 10px; margin-bottom: 0; color: #603416; font-style: normal;"><em>The Adventures of <span style="white-space: nowrap;">Wallace MacDuff:</span><br>Wally Joins The Circus</em></h3><p style="margin-top: 5px; margin-bottom: 40px; color: #603416; font-style: normal; font-size: 1rem;"><strong>Coming Soon to Amazon!</strong></p>';
+                
+                // Fade the new text back in
+                instructionText.style.opacity = '1';
+
+                // THE AUTO-SCROLL: Smoothly glide the parchment to the very bottom!
+                parchmentArea.scrollTo({
+                    top: parchmentArea.scrollHeight,
+                    behavior: 'smooth'
+                });
+                
+            }, 8000); // 8000 milliseconds = Exactly 8 seconds
+        });
+    }
+
+</script>
+
+</body>
+</html>

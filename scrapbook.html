@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Adventures of Wallace MacDuff | The Scrapbook</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="farm-stage">
+    
+    <div class="main-layout">
+
+        <div class="layout-col-left">
+            <div class="signpost-menu">
+                <img src="images/post.png" alt="Signpost" class="post-wood protected-art">
+                <div class="hanging-signs">
+                    <a href="index.html"><img src="images/nav-home.png" alt="Home" class="menu-sign protected-art"></a>
+                    <a href="story.html"><img src="images/nav-story.png" alt="Our Story" class="menu-sign protected-art"></a>
+                    <a href="books.html"><img src="images/nav-books.png" alt="Books" class="menu-sign protected-art"></a>
+                    <a href="fun.html"><img src="images/nav-fun.png" alt="Fun" class="menu-sign active protected-art"></a>
+                    <a href="contact.html"><img src="images/nav-contact.png" alt="Contact" class="menu-sign protected-art"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="layout-col-center">
+            
+            <a href="index.html" class="marquee-wrapper">
+                <img src="images/sign.png" alt="Wallace MacDuff" class="marquee-sign protected-art">
+            </a>
+            
+            <div class="parchment-runner">
+                <div class="content-area" id="parchmentContent">
+                    
+                    <h1>The Family Scrapbook</h1>
+                    
+                    <div class="storybook-divider"></div>
+                    
+                    <h2 style="margin-top: 0px;">The Early Years</h2>
+                    <div class="scrapbook-timeline" style="margin-top: 20px; margin-bottom: 40px;">
+                        
+                        <div class="photo-card portrait">
+                            <img src="images/scrapbook-1-birth.jpg" alt="Baby Wally" class="protected-art">
+                            <div class="photo-caption">Wally and Momma...</div>
+                        </div>
+
+                        <div class="photo-card landscape">
+                            <img src="images/scrapbook-2-potato.jpg" alt="The Potato Heist" class="protected-art">
+                            <div class="photo-caption">The great potato heist.</div>
+                        </div>
+
+                        <div class="photo-card landscape">
+                            <img src="images/scrapbook-3-halloween.jpg" alt="Halloween" class="protected-art">
+                            <div class="photo-caption">Trick or Treat.</div>
+                        </div>
+
+                        <div class="photo-card landscape">
+                            <img src="images/scrapbook-4-tball.jpg" alt="T-Ball" class="protected-art">
+                            <div class="photo-caption">Helmet issues.</div>
+                        </div>
+
+                    </div>
+
+                    <div class="storybook-divider"></div>
+
+                    <h2 style="margin-top: 0px;">The Awkward Era</h2>
+                    <div class="scrapbook-timeline" style="margin-top: 20px; margin-bottom: 40px;">
+                        
+                        <div class="photo-card landscape">
+                            <img src="images/scrapbook-5-vacation.jpg" alt="The Family Vacay" class="protected-art">
+                            <div class="photo-caption">A long way down the holiday road...</div>
+                        </div>
+
+                        <div class="photo-card landscape">
+                            <img src="images/scrapbook-6-trampoline.jpg" alt="Broken Arm" class="protected-art">
+                            <div class="photo-caption">First, but not last, broken bone.</div>
+                        </div>
+
+                        <div class="photo-card portrait">
+                            <img src="images/scrapbook-7-school-picture.jpg" alt="Freshman Year" class="protected-art">
+                            <div class="photo-caption">Yes... They called him "MacMullet."</div>
+                        </div>
+
+                        <div class="photo-card portrait">
+                            <img src="images/scrapbook-8-pisa.jpg" alt="Leaning Tower of Pisa" class="protected-art">
+                            <div class="photo-caption">When in Pisa...</div>
+                        </div>
+
+                        <div class="photo-card portrait">
+                            <img src="images/scrapbook-9-prom.jpg" alt="Prom Night" class="protected-art">
+                            <div class="photo-caption">2 Good, 2 Be, 4 Ever...</div>
+                        </div>
+
+                    </div>
+
+                    <div class="storybook-divider"></div>
+
+                    <h2 style="margin-top: 0px;">Finding Himself</h2>
+                    <div class="scrapbook-timeline" style="margin-top: 20px; margin-bottom: 40px;">
+                        
+                        <div class="photo-card landscape">
+                            <img src="images/scrapbook-10-college.jpg" alt="Wally's College Dorm" class="protected-art">
+                            <div class="photo-caption">The acoustic guitar phase.</div>
+                        </div>
+
+                        <div class="photo-card landscape">
+                            <img src="images/scrapbook-11-graduation.jpg" alt="College Graduation" class="protected-art">
+                            <div class="photo-caption">With honors...</div>
+                        </div>
+
+                        <div class="photo-card landscape">
+                            <img src="images/scrapbook-12-artist.jpg" alt="Wally Painting a Masterpiece" class="protected-art">
+                            <div class="photo-caption">Never too late...</div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="layout-col-right"></div>
+        
+        <div class="farm-footer">
+            <a href="legal.html">Wallace MacDuff Storybooks &copy; 2026</a>
+        </div>
+        
+    </div>
+</div>
+
+<script>
+    // The standard parchment scrolling script
+    const parchment = document.querySelector('.content-area');
+    let isDown = false;
+    let startY;
+    let scrollTop;
+
+    parchment.addEventListener('mousedown', (e) => {
+        isDown = true;
+        parchment.classList.add('is-dragging'); 
+        startY = e.pageY - parchment.offsetTop;
+        scrollTop = parchment.scrollTop;
+    });
+
+    parchment.addEventListener('mouseleave', () => {
+        isDown = false;
+        parchment.classList.remove('is-dragging'); 
+    });
+
+    parchment.addEventListener('mouseup', () => {
+        isDown = false;
+        parchment.classList.remove('is-dragging'); 
+    });
+
+    parchment.addEventListener('mousemove', (e) => {
+        if (!isDown) return; 
+        e.preventDefault(); 
+        const y = e.pageY - parchment.offsetTop;
+        const walk = (y - startY) * 1.5; 
+        parchment.scrollTop = scrollTop - walk;
+    });
+</script>
+
+</body>
+</html>

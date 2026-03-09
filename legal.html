@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Adventures of Wallace MacDuff | Legal & Privacy</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
+</head>
+
+<body class="focus-mode">
+
+<div class="focus-overlay"></div>
+
+<div class="farm-stage">
+    
+    <div class="main-layout">
+
+        <div class="layout-col-left">
+            <div class="signpost-menu">
+                <img src="images/post.png" alt="Signpost" class="post-wood protected-art">
+                <div class="hanging-signs">
+                    <a href="index.html"><img src="images/nav-home.png" alt="Home" class="menu-sign protected-art"></a>
+                    <a href="story.html"><img src="images/nav-story.png" alt="Our Story" class="menu-sign protected-art"></a>
+                    <a href="books.html"><img src="images/nav-books.png" alt="Books" class="menu-sign protected-art"></a>
+                    <a href="fun.html"><img src="images/nav-fun.png" alt="Fun" class="menu-sign protected-art"></a>
+                    <a href="contact.html"><img src="images/nav-contact.png" alt="Contact" class="menu-sign protected-art"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="layout-col-center">
+            
+            <a href="index.html" class="marquee-wrapper">
+                <img src="images/sign.png" alt="Wallace MacDuff" class="marquee-sign protected-art">
+            </a>
+            
+            <div class="parchment-runner">
+                <div class="content-area" id="parchmentContent">
+
+                    <a href="index.html" class="close-btn" style="position: sticky; top: 0px; margin-top: -15px; margin-left: -25px; z-index: 999; display: inline-block; background-color: #f4e1b0; padding: 8px 16px; border: 2px solid #603416; border-radius: 25px; box-shadow: 0px 4px 8px rgba(0,0,0,0.2);">✘ <span class="close-text">CLOSE</span></a>                    
+                    <h1>Legal & Privacy</h1>
+                    
+                    <p>Welcome to the fine print...</p>
+                    
+                    <div class="storybook-divider"></div>
+
+                    <h2>Kids' Privacy (COPPA)</h2>
+                    <p>We care deeply about protecting the privacy of children. Our website, stories, and activities are built to be enjoyed by all ages, and we do not knowingly collect, solicit, or store personal information from anyone under the age of 13. If you are under 13, please enjoy the farm, but do not send any information about yourself to us.</p>
+                    <p style="text-align: center;"><a href="privacy.html#coppa">Read our full COPPA Policy</a></p>
+
+                    <div class="storybook-divider"></div>
+
+                    <h2>Privacy Policy</h2>
+                    <p>We respect your privacy and your inbox. If you or your parents share information with us (like sending a message or signing up for updates), we will only use it for that specific purpose. We will never sell, rent, or trade your personal information to anyone&nbsp;else.<br>Ever.</p>
+                    <p><a href="privacy.html" class="legal-link">Read our full Privacy Policy</a></p>
+
+                    <div class="storybook-divider"></div>
+
+                    <h2>Terms &amp; Conditions</h2>
+                    <p>We want everyone to enjoy their visit to the farm, but we take our intellectual property seriously. By accessing this site, you are legally bound by our Terms &amp; Conditions. All content, including but not limited to: original illustrations, character designs, story narratives, web layouts, and code, is our exclusive, copyrighted property. We actively monitor our digital rights and will pursue legal enforcement against any unauthorized reproduction, scraping, distribution, or commercial use of our work.</p>
+                    <p><a href="terms.html" class="legal-link">Read our full <span style="white-space: nowrap;">Terms &amp; Conditions</span></a></p>
+
+                    <div class="storybook-divider"></div>
+
+                    <h2>Cookie Notice</h2>
+                    <p>Like most websites, we use cookies (and unfortunately, not the chocolate chip kind). These are small digital files that help our website run smoothly, remember your preferences, and help us understand how visitors use our site. By continuing to explore, you agree to our use of these essential cookies.</p>
+                    <p style="text-align: center;"><a href="privacy.html#cookies">Read our Cookie Policy</a></p>
+                    <br>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="layout-col-right"></div>
+        
+        <div class="farm-footer">
+            <a href="legal.html">Wallace MacDuff Storybooks &copy; 2026</a>
+        </div>
+        
+    </div>
+</div>
+
+<script>
+    const parchment = document.querySelector('.content-area');
+    let isDown = false;
+    let startY;
+    let scrollTop;
+
+    parchment.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startY = e.pageY - parchment.offsetTop;
+        scrollTop = parchment.scrollTop;
+    });
+
+    parchment.addEventListener('mouseleave', () => {
+        isDown = false;
+    });
+
+    parchment.addEventListener('mouseup', () => {
+        isDown = false;
+    });
+
+    parchment.addEventListener('mousemove', (e) => {
+        if (!isDown) return; 
+        e.preventDefault(); 
+        const y = e.pageY - parchment.offsetTop;
+        const walk = (y - startY) * 1.5; 
+        parchment.scrollTop = scrollTop - walk;
+    });
+</script>
+
+</body>
+</html>

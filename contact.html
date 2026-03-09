@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Adventures of Wallace MacDuff | Contact Us</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="farm-stage">
+    
+    <div class="main-layout">
+
+        <div class="layout-col-left">
+            <div class="signpost-menu">
+                <img src="images/post.png" alt="Signpost" class="post-wood protected-art">
+                <div class="hanging-signs">
+                    <a href="index.html"><img src="images/nav-home.png" alt="Home" class="menu-sign protected-art"></a>
+                    <a href="story.html"><img src="images/nav-story.png" alt="Our Story" class="menu-sign protected-art"></a>
+                    <a href="books.html"><img src="images/nav-books.png" alt="Books" class="menu-sign protected-art"></a>
+                    <a href="fun.html"><img src="images/nav-fun.png" alt="Fun" class="menu-sign protected-art"></a>
+                    <a href="contact.html"><img src="images/nav-contact.png" alt="Contact" class="menu-sign active protected-art"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="layout-col-center">
+            
+            <a href="index.html" class="marquee-wrapper">
+                <img src="images/sign.png" alt="Wallace MacDuff" class="marquee-sign protected-art">
+            </a>
+            
+            <div class="parchment-runner">
+                <div class="content-area" id="parchmentContent">
+                    
+                    <h1>Drop Us A Line!</h1>
+                    <div class="storybook-divider"></div>
+                    <img src="images/wally-lou.jpg" alt="Lou and Wallace MacDuff" class="contact-photo protected-art">
+                    <div class="stacked-contact-section">
+                        <p>Unsure of the proper marshmallow-to-cocoa ratio?<br>Have split ends and need guidance on your beauty routine?</p>
+                        <a href="mailto:wally@wallacemacduff.com" class="action-btn btn-primary uniform-btn">Email Wally</a>
+                    </div>
+                    <div class="stacked-contact-section">
+                        <p>Questions? Comments? Suggestions?<br>Want to have your family included on the Guestbook&nbsp;Map?</p>
+                        <a href="mailto:shane@wallacemacduff.com" class="action-btn btn-primary uniform-btn">Email Shane</a>
+                    </div>
+                    <div class="wally-callout">
+                        <p><strong>Wally Says:</strong> If you are under 13 years old, please make sure you have a parent or guardian's permission before sending us an email!</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="layout-col-right"></div>
+        
+        <div class="farm-footer">
+            <a href="legal.html">Wallace MacDuff Storybooks &copy; 2026</a>
+        </div>
+        
+    </div>
+</div>
+
+<script>
+    // Standard parchment scroll script
+    const parchment = document.querySelector('.content-area');
+    let isDown = false;
+    let startY;
+    let scrollTop;
+
+    parchment.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startY = e.pageY - parchment.offsetTop;
+        scrollTop = parchment.scrollTop;
+    });
+    parchment.addEventListener('mouseleave', () => { isDown = false; });
+    parchment.addEventListener('mouseup', () => { isDown = false; });
+    parchment.addEventListener('mousemove', (e) => {
+        if (!isDown) return; 
+        e.preventDefault(); 
+        const y = e.pageY - parchment.offsetTop;
+        const walk = (y - startY) * 1.5; 
+        parchment.scrollTop = scrollTop - walk;
+    });
+
+</script>
+
+</body>
+</html>
