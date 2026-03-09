@@ -47,7 +47,7 @@ img {
 /* We trigger the swing whether they hover on the link wrapper OR the image itself */
 a:hover .swing-icon,
 .swing-icon:hover {
-    transform: scale(1.05) rotate(-3deg); 
+    transform: scale(1.05) rotate(3deg); 
     
     /* We bump up the drop-shadow and turn on the lights! */
     filter: drop-shadow(8px 15px 12px rgba(0,0,0,0.5)) brightness(1.15); 
@@ -361,19 +361,28 @@ a:hover .swing-icon,
 
 /* THE HOVER: The Cream Halo Swing */
 .hanging-signs a:hover .menu-sign {
-    transform: scale(1.05) rotate(-2deg); 
+    transform: scale(1.05) rotate(2deg); 
     filter: 
         drop-shadow(8px 15px 12px rgba(0,0,0,0.5)) 
         drop-shadow(0 0 15px rgba(244, 232, 206, 0.8)) 
         brightness(1.1); 
 }
 
-/* THE ACTIVE STATE: Permanently illuminates the current page's sign */
+/* THE ACTIVE STATE: Physically resizes the current page's sign */
 .menu-sign.active {
+    height: 9.5vh !important; /* Bumps up from the standard 7.5vh */
+    max-height: 85px !important; /* Raises the desktop safety cap */
+    transform: rotate(-3deg); /* Playful tilt */
     filter: 
         drop-shadow(5px 10px 8px rgba(0,0,0,0.5)) 
         drop-shadow(0 0 15px rgba(244, 232, 206, 0.9)) 
         brightness(1.15); 
+}
+
+/* Protects the sign from shrinking back down if Momma hovers over it */
+.hanging-signs a:hover .menu-sign.active {
+    height: 9.5vh !important;
+    transform: rotate(-3deg);
 }
 
 /* ==================================================================================
@@ -439,6 +448,12 @@ a:hover .swing-icon,
         height: auto;
     }
 
+    /* THE MOBILE ACTIVE FIX */
+    .menu-sign.active {
+        max-width: 95px !important; /* Physically wider on phones than the 75px default */
+        height: auto !important;
+    }
+
     /* 3. BOTTOM ROW: The Parchment */
     .parchment-runner {
         order: 3;
@@ -468,6 +483,41 @@ a:hover .swing-icon,
     /* 5. BOOKS PAGE FIX: Tightens the space above the book cover on mobile */
     .book-hero {
         padding-top: 20px;
+    }
+}
+
+/* ==================================================================================
+                            THE LANDSCAPE "PLEASE ROTATE" SCREEN
+   ================================================================================== */
+.landscape-warning {
+    display: none; /* Hidden by default */
+}
+
+/* This media query only triggers if the device is in landscape AND the screen is short.
+  Setting the max-height to 500px ensures that iPads and Desktop monitors are ignored!
+*/
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .landscape-warning {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        font-family: 'Delius', cursive;
+        background-color: #f4e8ce; /* Your beautiful cream background */
+        color: #603416; /* Your classic MacDuff brown */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 10px 0;
+        z-index: 99999; /* Forces it over absolutely everything, including the splash screen */
+    }
+    
+    /* Hides the broken layout underneath so the browser doesn't struggle to render it */
+    .farm-stage {
+        display: none !important; 
     }
 }
 
@@ -659,6 +709,12 @@ a:hover .swing-icon,
     .menu-sign {
         height: 65px; 
     }
+
+    /* THE 4K ACTIVE FIX */
+    .menu-sign.active {
+        height: 85px !important; /* Locks the active sign larger on massive screens */
+    }
+
     .fun-modules-container {
         margin-bottom: 40px; /* THE DIAL: Adjust this up or down to add space after the final button */
     }
