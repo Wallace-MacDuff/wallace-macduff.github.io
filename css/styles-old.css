@@ -487,59 +487,6 @@ a:hover .swing-icon,
 }
 
 /* ==================================================================================
-                            THE LANDSCAPE "PLEASE ROTATE" SCREEN
-   ================================================================================== */
-.landscape-warning {
-    display: none; 
-}
-
-@media screen and (max-height: 500px) and (orientation: landscape) {
-    .landscape-warning {
-        position: fixed;
-        top: 0; left: 0;
-        width: 100vw; height: 100vh;
-        background-color: #f4e8ce; 
-        color: #603416; 
-        font-family: 'Delius', cursive; 
-        
-        /* The Flexbox Setup */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        
-        /* Box-sizing ensures padding doesn't push it past 100vh */
-        padding: 10px;
-        box-sizing: border-box; 
-        z-index: 99999; 
-    }
-    
-    /* THE MAGIC RESPONSIVE SQUISH */
-    .landscape-warning img {
-        max-height: 40vh; /* Image will never take up more than 40% of the screen height! */
-        width: auto;
-        margin-bottom: 10px;
-    }
-    
-    .landscape-warning h2 {
-        margin: 0 0 5px 0;
-        font-size: 1.5rem;
-    }
-    
-    .landscape-warning p {
-        margin: 0 0 5px 0;
-        font-size: 0.9rem;
-        line-height: 1.2;
-    }
-    
-    .farm-stage {
-        display: none !important; 
-    }
-}
-
-
-/* ==================================================================================
                              9. THE FUN PLAYGROUND MODULES
    ================================================================================== */
 .fun-modules-container {
