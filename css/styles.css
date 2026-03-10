@@ -487,42 +487,6 @@ a:hover .swing-icon,
 }
 
 /* ==================================================================================
-                            THE LANDSCAPE "PLEASE ROTATE" SCREEN
-   ================================================================================== */
-.landscape-warning {
-    display: none; /* Hidden by default */
-}
-
-/* This media query only triggers if the device is in landscape AND the screen is short.
-  Setting the max-height to 500px ensures that iPads and Desktop monitors are ignored!
-*/
-@media screen and (max-height: 500px) and (orientation: landscape) {
-    .landscape-warning {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        font-family: 'Delius', cursive;
-        background-color: #f4e8ce; /* Your beautiful cream background */
-        color: #603416; /* Your classic MacDuff brown */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 10px 0;
-        z-index: 99999; /* Forces it over absolutely everything, including the splash screen */
-    }
-    
-    /* Hides the broken layout underneath so the browser doesn't struggle to render it */
-    .farm-stage {
-        display: none !important; 
-    }
-}
-
-
-/* ==================================================================================
                              9. THE FUN PLAYGROUND MODULES
    ================================================================================== */
 .fun-modules-container {
