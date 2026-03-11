@@ -58,9 +58,10 @@ a:hover .swing-icon,
    ================================================================================== */
 .farm-stage {
     position: relative; 
-    height: 100vh; 
-    width: 100vw;
-    display: flex; 
+    top: 0; 
+    bottom: 0; 
+    left: 0; 
+    right: 0;    display: flex; 
     flex-direction: column; 
     background-image: url('../images/background.jpg');
     background-size: cover; 
@@ -1409,8 +1410,10 @@ a:hover .mini-cover {
    ================================================================================== */
 .splash-screen {
     position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh; height: 100svh;
+    top: 0; 
+    bottom: 0; 
+    left: 0; 
+    right: 0;
     background-color: #f4e8ce; 
     display: flex;
     align-items: center;
