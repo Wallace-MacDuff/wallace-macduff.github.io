@@ -1289,8 +1289,8 @@ a:hover .mini-cover {
 /* ===== Galaxy S23 (360x780) ===== */
 @media screen and (min-width: 350px) and (max-width: 365px) and (min-height: 776px) {
     #guestbook-map {
-        height: 35vh !important; /* THE DIAL: Adjust for tall Androids */
-        min-height: 35vh !important; 
+        height: 30vh !important; /* THE DIAL: Adjust for tall Androids */
+        min-height: 30vh !important; 
     }
 }
 
