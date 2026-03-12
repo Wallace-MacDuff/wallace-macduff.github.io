@@ -1253,10 +1253,9 @@ a:hover .mini-cover {
     width: 100%;
     box-sizing: border-box;
     
-    /* THE BULLETPROOF SIZING */
-    height: 60vh;         /* It will naturally try to take up a little more than half the screen */
-    min-height: 350px;    /* SAFETY FLOOR: It will NEVER shrink smaller than a readable 350px on tiny phones */
-    max-height: 600px;    /* SAFETY CEILING: It will NEVER stretch endlessly on massive desktop monitors */
+    /* THE BULLETPROOF FIX: Sizes perfectly based on width, ignoring the phone's height entirely */
+    aspect-ratio: 4 / 3; 
+    max-height: 450px; /* Safety cap so it doesn't get too tall on huge desktop monitors */
     
     border-radius: 12px;
     border: 2px solid #603416;
@@ -1264,6 +1263,11 @@ a:hover .mini-cover {
     margin-bottom: 20px;
     background-color: #eaddc5; 
     z-index: 1; 
+}
+
+/* THE ANTIQUE FILTER: This is the magic trick! It turns standard maps into vintage parchment */
+.leaflet-tile-pane {
+    filter: sepia(0.6) hue-rotate(-15deg) contrast(0.9) brightness(0.9);
 }
 
 /* THE TALL MONITOR OVERRIDE */
