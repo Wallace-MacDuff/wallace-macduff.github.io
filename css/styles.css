@@ -1263,6 +1263,10 @@ a:hover .mini-cover {
     flex-shrink: 0; 
 }
 
+.map-footer-text p {
+    font-size: .75rem !important;
+}
+
 /* THE MIDDLE: The Map acts as a spring, taking exactly what is left over */
 #guestbook-map {
     width: 100%;
