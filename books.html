@@ -55,14 +55,14 @@
             </a>
             
             <div class="parchment-runner">
-                <div class="content-area" id="parchmentContent">
-                    
+                <div class="content-area" id="parchmentContent" tabindex="0" style="outline: none;">
+                                    
                     <div class="book-hero">
-                        <a href="#"> <img src="images/cover.jpg" alt="A Highland Homecoming Cover" class="book-cover protected-art">
+                        <a href="storefront.html"> <img src="images/cover.jpg" alt="A Highland Homecoming Cover" class="book-cover protected-art" style="max-width: 65%; margin-bottom: 30px;">
                         </a>
 
                         <div class="book-actions">
-                            <a href="#" class="action-btn btn-primary">Buy the Book</a>
+                            <a href="storefront.html" class="action-btn btn-primary">Buy the Book</a>
                         </div>
                     </div>
 
@@ -93,13 +93,13 @@
                     </p>
 
                     <div class="mini-promo">
-                        <a href="#"> 
+                        <a href="storefront.html"> 
                             <img src="images/cover.jpg" alt="A Highland Homecoming Cover" class="mini-cover protected-art">
                         </a>
                         
                         <div class="mini-promo-info">
                             <h4 class="mini-promo-title"><em><span style="white-space: nowrap;">The Adventures of</span><br><span style="white-space: nowrap;">Wallace MacDuff:</span><br><span style="white-space: nowrap;">A Highland Homecoming</span></em></h4>
-                            <a href="#" class="action-btn btn-primary">Buy the Book</a>
+                            <a href="storefront.html" class="action-btn btn-primary">Buy the Book</a>
                         </div>
                     </div>
 
@@ -133,6 +133,7 @@
 <script>
     // The standard parchment scrolling script
     const parchment = document.querySelector('.content-area');
+    parchment.focus();
     let isDown = false;
     let startY;
     let scrollTop;
@@ -185,7 +186,12 @@
                 teaserScene.classList.add('is-finished');
                 
                 // THE SWAP: Inject the new text into the exact same spot!
-                instructionText.innerHTML = '<h3 style="margin-top: 10px; margin-bottom: 0; color: #603416; font-style: normal;"><em>The Adventures of <span style="white-space: nowrap;">Wallace MacDuff:</span><br>Wally Joins The Circus</em></h3><p style="margin-top: 5px; margin-bottom: 40px; color: #603416; font-style: normal; font-size: 1rem;"><strong>Coming Soon to Amazon!</strong></p>';
+                instructionText.innerHTML = '<h3 style="margin-top: 10px; margin-bottom: 0; color: #603416; font-style: normal;"><em>The Adventures of <span style="white-space: nowrap;">Wallace MacDuff:</span><br>Wally Joins The Circus</em></h3>' +
+                    '<p style="margin-top: 5px; margin-bottom: 40px; color: #603416; font-style: normal; font-size: 1rem; display: flex; align-items: center; justify-content: center; gap: 8px;">' +
+                    '<strong>Coming Soon To:</strong>' +
+                    '<a href="https://www.amazon.com/dp/B07C2CF1YV?s=digital-skills&ie=UTF8&qid=1523505214" target="_blank" style="display: inline-flex; align-items: center; pointer-events: auto;">' +
+                    '<img src="images/amazon_short.png" alt="Amazon" class="swing-icon" style="height: 18px; width: auto;">' +
+                    '</a></p>';
                 
                 // Fade the new text back in
                 instructionText.style.opacity = '1';

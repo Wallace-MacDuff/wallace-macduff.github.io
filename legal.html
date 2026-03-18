@@ -54,7 +54,7 @@
             </a>
             
             <div class="parchment-runner">
-                <div class="content-area" id="parchmentContent">
+                <div class="content-area" id="parchmentContent" tabindex="0" style="outline: none;">
 
                     <a href="index.html" class="close-btn" style="position: sticky; top: 0px; margin-top: -15px; margin-left: -25px; z-index: 999; display: inline-block; background-color: #f4e1b0; padding: 8px 16px; border: 2px solid #603416; border-radius: 25px; box-shadow: 0px 4px 8px rgba(0,0,0,0.2);">✘ <span class="close-text">CLOSE</span></a>                    
                     <h1>Legal & Privacy</h1>
@@ -101,6 +101,7 @@
 
 <script>
     const parchment = document.querySelector('.content-area');
+    parchment.focus();
     let isDown = false;
     let startY;
     let scrollTop;

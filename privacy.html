@@ -65,7 +65,7 @@
             </a>
             
             <div class="parchment-runner">
-                <div class="content-area legal-text" id="parchmentContent">
+                <div class="content-area" id="parchmentContent" tabindex="0" style="outline: none;">
                     
                         <a href="index.html" class="close-btn" style="position: sticky; top: 0px; margin-top: -15px; margin-left: -25px; z-index: 999; display: inline-block; background-color: #f4e1b0; padding: 8px 16px; border: 2px solid #603416; border-radius: 25px; box-shadow: 0px 4px 8px rgba(0,0,0,0.2);">✘ <span class="close-text">CLOSE</span></a>                    
 
@@ -80,7 +80,7 @@
                         <li>Use Wallace MacDuff Storybooks™. The website operates as a promotional and interactive entertainment platform for the children's book series 'The Adventures of Wallace MacDuff.' The service provides users with free digital content, including original stories, illustrations, downloadable activities, and recipes for personal, non-commercial use.</li>
                         <li>Engage with us in other related ways, including any marketing or events.</li>
                     </ul>
-                    <p><strong>Questions or concerns?</strong> Reading this Privacy Notice will help you understand your privacy rights and choices. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at <a href="mailto:contact@wallacemacduff.com">contact@wallacemacduff.com</a>.</p>
+                    <p><strong>Questions or concerns?</strong> Reading this Privacy Notice will help you understand your privacy rights and choices. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at <a href="mailto:hello@wallacemacduff.com">hello@wallacemacduff.com</a>.</p>
 
                     <h2 style="text-align: center;">2. WHAT INFORMATION DO WE COLLECT?</h2>
                     <h3 style="text-align: center;">Personal information you disclose to us</h3>
@@ -114,7 +114,7 @@
                         <li>Data Storage Service Providers</li>
                     </ul>
 
-                    <h2 id="cookies" style="text-align: center;">5. DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES?</h2>
+                    <h2 id="cookies" tabindex="-1" style="outline: none; text-align: center;">5. DO WE USE COOKIES AND OTHER TRACKING TECHNOLOGIES?</h2>
                     <p><em>In Short: We only use cookies to make the farm work better, not to track you across the internet.</em></p>
                     <p>Let's put your mind at ease: we do not participate in the ad-tracking, data-scalping, or crooked data broker marketplace. There is nothing smelly on our farm (except Wally, sometimes).</p>
                     <p>Our website uses a few simple, standard "cookies" (small data files saved to your browser). We only use these for two reasons:</p>
@@ -138,14 +138,14 @@
                         To exercise these rights, you can contact us by visiting:<br>
                         <a href="https://wallacemacduff.com/contact.html" target="_blank">https://wallacemacduff.com/contact.html</a>,<br>
                         or by emailing us at:<br>
-                        <a href="mailto:contact@wallacemacduff.com">contact@wallacemacduff.com</a>
+                        <a href="mailto:hello@wallacemacduff.com">hello@wallacemacduff.com</a>
                     </p>
 
                     <h2 style="text-align: center;">9. DO WE MAKE UPDATES TO THIS NOTICE?</h2>
                     <p><em>In Short: Yes, we will update this notice as necessary to stay compliant with relevant laws.</em></p>
                     <p>We may update this Privacy Notice from time to time. The updated version will be indicated by an updated "Revised" date at the top of this Privacy Notice.</p>
 
-                    <h2 id="coppa" style="text-align: center;">10. CHILDREN'S PRIVACY (COPPA)</h2>
+                    <h2 id="coppa" tabindex="-1" style="outline: none; text-align: center;">10. CHILDREN'S PRIVACY (COPPA)</h2>
                     <p><em>In Short: We protect children's privacy and comply with the Children's Online Privacy Protection Act (COPPA).</em></p>
                     <p>The farm stage is designed to be a safe, family-friendly environment. We do not knowingly collect, use, or disclose personal information from children under the age of 13 without prior verifiable parental consent. Children under 13 are strictly prohibited from submitting personal data (such as names, locations, or email addresses) to our Guestbook or Reader Map without direct supervision and permission from a parent or guardian. If we learn that we have inadvertently collected personal information from a child under 13 without parental consent, we will take immediate steps to delete that information from our records.</p>
 
@@ -154,7 +154,7 @@
                         If you have questions or comments about this notice, you can contact us by visiting:<br>
                         <a href="https://wallacemacduff.com/contact.html" target="_blank">https://wallacemacduff.com/contact.html</a>,<br>
                         or by emailing us at:<br>
-                        <a href="mailto:contact@wallacemacduff.com">contact@wallacemacduff.com</a>
+                        <a href="mailto:hello@wallacemacduff.com">hello@wallacemacduff.com</a>
                     </p>
                 </div>
             </div>
@@ -172,6 +172,7 @@
 
 <script>
     const parchment = document.querySelector('.content-area');
+    parchment.focus();
     let isDown = false;
     let startY;
     let scrollTop;

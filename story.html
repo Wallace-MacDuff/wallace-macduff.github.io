@@ -51,8 +51,8 @@
             </a>
             
             <div class="parchment-runner">
-                <div class="content-area" id="parchmentContent">
-                    
+                <div class="content-area" id="parchmentContent" tabindex="0" style="outline: none;">
+                                    
                     <h1>The Origin of<br>Wallace MacDuff</h1>
                     
                     <div class="storybook-divider"></div>
@@ -67,7 +67,7 @@
 
                     <p>I needed something warmer. Something with a little more soul. Something with hair and a rigorous beauty routine.</p>
                     
-                    <p>I went back to the digital drawing board, and a pampered, cocoa-loving Scottish Highland cow named Wally came to life. I designed two panels for my bathroom, The Shower Cow and The Mirror Cow, and those pieces not only replaced a cold frog, they became the warm opening pages of a brand&nbsp;new&nbsp;universe.</p>
+                    <p>I went back to the digital drawing board, and a pampered, cocoa-loving Scottish Highland cow named Wally came to life. I designed two panels for my bathroom,  <strong style="font-style: normal;">The Shower Cow</strong> and  <strong style="font-style: normal;">The Mirror Cow</strong>, and those pieces not only replaced a cold frog, they became the warm opening pages of a brand&nbsp;new&nbsp;universe.</p>
                     
                     <div class="story-image-row">
                     <img src="images/shower.jpg" alt="The Shower" class="inline-story-img protected-art">
@@ -105,6 +105,7 @@
 
 <script>
     const parchment = document.querySelector('.content-area');
+    parchment.focus();
     let isDown = false;
     let startY;
     let scrollTop;

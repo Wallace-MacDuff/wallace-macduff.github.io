@@ -51,7 +51,7 @@
             </a>
             
             <div class="parchment-runner">
-                <div class="content-area" id="parchmentContent">
+                <div class="content-area" id="parchmentContent" tabindex="0" style="outline: none;">
                     
                     <h1>The Family Scrapbook</h1>
                     
@@ -153,6 +153,7 @@
 <script>
     // The standard parchment scrolling script
     const parchment = document.querySelector('.content-area');
+    parchment.focus();
     let isDown = false;
     let startY;
     let scrollTop;

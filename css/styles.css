@@ -47,7 +47,7 @@ img {
 /* We trigger the swing whether they hover on the link wrapper OR the image itself */
 a:hover .swing-icon,
 .swing-icon:hover {
-    transform: scale(1.05) rotate(3deg); 
+    transform: scale(1.03) rotate(3deg); 
     
     /* We bump up the drop-shadow and turn on the lights! */
     filter: drop-shadow(8px 15px 12px rgba(0,0,0,0.5)) brightness(1.15); 
@@ -452,6 +452,12 @@ a:hover .swing-icon,
     .menu-sign.active {
         max-width: 95px !important; /* Physically wider on phones than the 75px default */
         height: auto !important;
+    }
+
+    /* THE MOBILE HOVER OVERRIDE: Stops the active sign from jumping vertically when tapped */
+    .hanging-signs a:hover .menu-sign.active {
+        height: auto !important;
+        max-width: 95px !important;
     }
 
     /* 3. BOTTOM ROW: The Parchment */
@@ -1113,6 +1119,13 @@ a:hover .mini-cover {
     68%, 100% { filter: brightness(1); transform: translateX(0); }
 }
 
+/* Lifts the links above the "Glass Shield" once the animation is done */
+.theatrical-container.is-finished .instruction-text {
+    position: relative;
+    z-index: 20; 
+    pointer-events: auto;
+}
+
 /* ==================================================================================
                                  15. THE CONTACT PAGE
    ================================================================================== */
@@ -1414,4 +1427,70 @@ a:hover .mini-cover {
 @keyframes fadeOutSplash {
     0%   { opacity: 1; }
     100% { opacity: 0; }
+}
+
+/* ==================================================================================
+                                 18. THE STOREFRONT BADGES
+   ================================================================================== */
+.retailer-grid {
+    display: flex;
+    flex-wrap: wrap;       
+    justify-content: center; 
+    gap: 15px;             
+    margin-top: 20px;
+}
+
+/* Builds a premium, uniform box around whatever logo you use */
+.custom-store-badge {
+    display: flex;
+    align-items: center;
+    background-color: #1a1a1a; 
+    color: #ffffff !important;
+    padding: 8px 16px 8px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    border: 1px solid #333;
+    min-width: 170px;
+    box-sizing: border-box;
+}
+
+.custom-store-badge:hover {
+    transform: scale(1.05);
+    background-color: #333;
+    color: #ffffff !important;
+}
+
+/* The Magic Trick: Forces every logo to pure white so they all match */
+.badge-icon {
+    height: 24px;
+    width: auto;
+    margin-right: 12px;
+    filter: brightness(0) invert(1); 
+}
+
+/* Stacks the text cleanly */
+.badge-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.badge-small-text {
+    font-size: 0.65rem;
+    line-height: 1;
+    margin-bottom: 3px;
+    font-family: sans-serif;
+    color: #aaaaaa;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-large-text {
+    font-size: 1.1rem;
+    font-weight: bold;
+    line-height: 1;
+    font-family: sans-serif;
+    letter-spacing: -0.5px;
 }
