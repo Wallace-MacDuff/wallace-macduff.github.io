@@ -256,6 +256,13 @@ a:hover .swing-icon,
     margin: 30px auto; /* Guarantees the frog stays perfectly centered with nice breathing room */
 }
 
+/* THE CUSTOM DIAL FOR LARGE STANDALONE IMAGES */
+.large-story-img {
+    max-width: 550px; /* The safe maximum for the parchment */
+    display: block;
+    margin: 30px auto; /* Centers it perfectly with breathing room */
+}
+
 /* THE CUSTOM DIAL FOR THE MONOGRAM IMAGE */
 .monogram-img {
     display: block; 
