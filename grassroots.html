@@ -88,23 +88,26 @@
                         </ol>
                     </div>
 
-                    <!-- Vendor Buttons Mimicked from Storefront -->
-                    <div class="store-section wally-callout" style="max-width: 400px; margin: 30px auto; text-align: center;">
-                    
-                        <div class="retailer-grid" style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 30px; margin-top: 30px; margin-bottom: 30px;">
+                    <div class="store-section wally-callout" style="max-width: 400px; margin: 30px auto; text-align: center; padding: 15px;">
+                        
+                        <!-- THE FIX: We turned the flex gap up to 30px to handle all the spacing automatically! -->
+                        <div style="display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: center; align-items: center; gap: 30px;">
                             
-                            <a href="https://www.amazon.com/amz-books/discover?node=4&navStore=books&ie=UTF8&nodl=0&ref=books_dsk_sn_childrens-2a2b7&ref_=books_dsk_sn_childrens-2a2b7" class="badge-link" target="_blank" rel="noopener noreferrer">
-                                <img src="images/amazon.png" alt="Available at Amazon" class="store-badge swing-icon" style="height: 55px; width: auto; max-width: 100%; display: block; border-radius: 6px;">
-                            </a>              
+                            <div style="flex: 1; min-width: 0; display: flex; justify-content: flex-end;">
+                                <img src="images/little-cows-left.png" alt="Left Graphic" class="protected-art" style="width: 100%; max-width: 65px; height: auto; object-fit: contain;">
+                            </div>
                             
-                            <a href="https://play.google.com/store/books" class="badge-link" target="_blank" rel="noopener noreferrer">
-                                <img src="images/google.svg" alt="Get it on Google Play" class="store-badge swing-icon" style="height: 45px; width: auto; max-width: 100%; display: block; border-radius: 6px;">
-                            </a>
-
-                            <a href="http://books.apple.com/us/book/id6760744234" class="badge-link" target="_blank" rel="noopener noreferrer">
-                                <img src="images/apple.svg" alt="Available on Apple Books" class="store-badge swing-icon" style="height: 50px; width: auto; max-width: 100%; display: block; border-radius: 6px;">
-                            </a>
-
+                            <div style="flex-shrink: 0;">
+                                <a href="https://www.amazon.com/amz-books/discover?node=4&navStore=books&ie=UTF8&nodl=0&ref=books_dsk_sn_childrens-2a2b7&ref_=books_dsk_sn_childrens-2a2b7" class="badge-link" target="_blank" rel="noopener noreferrer">
+                                    <!-- THE FIX: Margins removed so the clickable area perfectly hugs the image -->
+                                    <img src="images/amazon.png" alt="Available at Amazon" class="store-badge swing-icon" style="height: 55px; width: auto; display: block; border-radius: 6px;">
+                                </a>              
+                            </div>
+                            
+                            <div style="flex: 1; min-width: 0; display: flex; justify-content: flex-start;">
+                                <img src="images/little-cows-right.png" alt="Right Graphic" class="protected-art" style="width: 100%; max-width: 65px; height: auto; object-fit: contain;">
+                            </div>
+                            
                         </div>
                     </div>
 
