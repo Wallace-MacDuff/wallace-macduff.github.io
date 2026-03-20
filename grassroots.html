@@ -88,24 +88,25 @@
                         </ol>
                     </div>
 
-                    <div class="store-section wally-callout" style="max-width: 400px; margin: 30px auto; text-align: center; padding: 15px;">
+                    <div class="store-section wally-callout" style="max-width: 400px; margin: 30px auto; text-align: center; padding: 15px 5px;">
                         
-                        <!-- THE FIX: We turned the flex gap up to 30px to handle all the spacing automatically! -->
-                        <div style="display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: center; align-items: center; gap: 30px;">
+                        <!-- THE FIX: Tighter gap gives horizontal pixels back to the cows -->
+                        <div style="display: flex; flex-direction: row; flex-wrap: nowrap; justify-content: center; align-items: center; gap: 8px;">
                             
                             <div style="flex: 1; min-width: 0; display: flex; justify-content: flex-end;">
-                                <img src="images/little-cows-left.png" alt="Left Graphic" class="protected-art" style="width: 100%; max-width: 160px; height: auto; object-fit: contain;">
+                                <!-- THE FIX: Raised max-width allows them to grow larger -->
+                                <img src="images/little-cows-left.png" alt="Left Graphic" class="protected-art" style="width: 100%; max-width: 85px; height: auto; object-fit: contain;">
                             </div>
                             
                             <div style="flex-shrink: 0;">
                                 <a href="https://www.amazon.com/amz-books/discover?node=4&navStore=books&ie=UTF8&nodl=0&ref=books_dsk_sn_childrens-2a2b7&ref_=books_dsk_sn_childrens-2a2b7" class="badge-link" target="_blank" rel="noopener noreferrer">
-                                    <!-- THE FIX: Margins removed so the clickable area perfectly hugs the image -->
                                     <img src="images/amazon.png" alt="Available at Amazon" class="store-badge swing-icon" style="height: 55px; width: auto; display: block; border-radius: 6px;">
                                 </a>              
                             </div>
                             
                             <div style="flex: 1; min-width: 0; display: flex; justify-content: flex-start;">
-                                <img src="images/little-cows-right.png" alt="Right Graphic" class="protected-art" style="width: 100%; max-width: 160px; height: auto; object-fit: contain;">
+                                <!-- THE FIX: Raised max-width allows them to grow larger -->
+                                <img src="images/little-cows-right.png" alt="Right Graphic" class="protected-art" style="width: 100%; max-width: 85px; height: auto; object-fit: contain;">
                             </div>
                             
                         </div>
