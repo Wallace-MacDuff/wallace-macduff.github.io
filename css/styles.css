@@ -1563,3 +1563,26 @@ a:hover .mini-cover {
     z-index: 100;
     pointer-events: none;  /* Lets the mouse click pass right through to the vendor link */
 }
+
+/* ==================================================================================
+                                   #1 NEW RELEASE BANNER
+   ================================================================================== */
+
+.award-banner {
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #603416; 
+    margin: 15px 0 25px 0;
+    letter-spacing: 1px;
+}
+
+.award-banner a {
+    color: #d35400;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.award-banner a:hover {
+    color: #8e3800; /* Darkens slightly when they hover over the link */
+}
