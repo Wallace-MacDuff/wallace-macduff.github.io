@@ -1438,7 +1438,7 @@ a:hover .mini-cover {
 }
 
 /* ==================================================================================
-                                 18. THE STOREFRONT BADGES
+                                 19. THE STOREFRONT BADGES
    ================================================================================== */
 .retailer-grid {
     display: flex;
@@ -1503,6 +1503,31 @@ a:hover .mini-cover {
     letter-spacing: -0.5px;
 }
 
+/* ==================================================================================
+                         20.  VIP-PLACARD STLYES FOR "WIGGLE ROOM"
+   ================================================================================== */
+
+@keyframes caterpillar-wave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); } /* How high the letters jump */
+}
+
+.wave-text span {
+    display: inline-block;
+    animation: caterpillar-wave 2.5s infinite ease-in-out;
+    animation-delay: calc(0.1s * var(--i)); /* Uses the inline variable to stagger the jump */
+}
+
+
+
+
+
+
+
+
+/* ==================================================================================
+                                     TEMPORARY
+   ================================================================================== */
 /* ==================================================================================
                              EASTER WEEKEND PROMO STICKER
    ================================================================================== */
