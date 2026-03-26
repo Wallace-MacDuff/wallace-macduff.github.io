@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Adventures of Wallace MacDuff | Legal & Privacy</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="manifest" href="images/site.webmanifest">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MDZ61L8YTQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-MDZ61L8YTQ');
+    </script>
+</head>
+
+<body class="focus-mode">
+
+<div class="focus-overlay"></div>
+
+<div class="farm-stage">
+    
+    <div class="main-layout">
+
+        <div class="layout-col-left">
+            <div class="signpost-menu">
+                <img src="images/post.png" alt="Signpost" class="post-wood protected-art">
+                <div class="hanging-signs">
+                    <a href="index.html"><img src="images/nav-home.png" alt="Home" class="menu-sign protected-art"></a>
+                    <a href="story.html"><img src="images/nav-story.png" alt="Our Story" class="menu-sign protected-art"></a>
+                    <a href="books.html"><img src="images/nav-books.png" alt="Books" class="menu-sign protected-art"></a>
+                    <a href="fun.html"><img src="images/nav-fun.png" alt="Fun" class="menu-sign protected-art"></a>
+                    <a href="contact.html"><img src="images/nav-contact.png" alt="Contact" class="menu-sign protected-art"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="layout-col-center">
+            
+            <a href="index.html" class="marquee-wrapper">
+                <img src="images/sign.png" alt="Wallace MacDuff" class="marquee-sign protected-art">
+            </a>
+            
+            <div class="parchment-runner">
+                <div class="content-area" id="parchmentContent" tabindex="0" style="outline: none;">
+
+                    <a href="/index.html" class="close-btn" style="position: sticky; top: 0px; margin-top: -15px; margin-left: -25px; z-index: 999; display: inline-block; background-color: #f4e1b0; padding: 4px 8px; border: 1px solid #603416; border-radius: 25px; box-shadow: 0px 4px 8px rgba(0,0,0,0.2);">✘ </a>                        
+                    
+                    <div style="text-align: center; padding: 0px 5px 0px 5px;">
+                        
+                        <img src="images/dawson.png" alt="A message for you!" class="protected-art" style="max-width: 100%; height: auto; border-radius: 8px;">
+                        
+                        <p style="font-size: 1.5rem; text-align: center;">
+                            Welcome to the herd, Dawson...<br>
+                            Find your<br>
+                            <strong class="wave-text">
+                                <span style="--i:1">W</span><span style="--i:2">I</span><span style="--i:3">G</span><span style="--i:4">G</span><span style="--i:5">L</span><span style="--i:6">E</span>
+                                &nbsp;
+                                <span style="--i:7">R</span><span style="--i:8">O</span><span style="--i:9">O</span><span style="--i:10">M</span><span style="--i:11">!</span>
+                            </strong>
+                        </p>
+
+                    </div>
+                    
+                    <div class="storybook-divider"></div>
+                    <br>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="layout-col-right"></div>
+        
+        <div class="farm-footer">
+            <a href="legal.html">Wallace MacDuff Storybooks &copy; 2026</a>
+        </div>
+        
+    </div>
+</div>
+
+<script>
+    const parchment = document.querySelector('.content-area');
+    parchment.focus();
+    let isDown = false;
+    let startY;
+    let scrollTop;
+
+    parchment.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startY = e.pageY - parchment.offsetTop;
+        scrollTop = parchment.scrollTop;
+    });
+
+    parchment.addEventListener('mouseleave', () => {
+        isDown = false;
+    });
+
+    parchment.addEventListener('mouseup', () => {
+        isDown = false;
+    });
+
+    parchment.addEventListener('mousemove', (e) => {
+        if (!isDown) return; 
+        e.preventDefault(); 
+        const y = e.pageY - parchment.offsetTop;
+        const walk = (y - startY) * 1.5; 
+        parchment.scrollTop = scrollTop - walk;
+    });
+</script>
+
+</body>
+</html>
