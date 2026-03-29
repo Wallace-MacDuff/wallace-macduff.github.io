@@ -20,4 +20,4 @@ git commit -m "$COMMIT_MSG"
 echo "🚀 Shipping the files to GitHub..."
 git push
 
-echo "✅ Done! The MacDuff Farm is live."
+echo "✅ Done! The MacDuff Farm is live. 🚜"
